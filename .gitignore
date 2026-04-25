@@ -1,0 +1,38 @@
+# === Engine & Game Data ===
+# openc2e is maintained as a separate repo (openc2e-nb).
+# creaturesexodusgame/ must NOT be included - proprietary Creatures 3 game data (Creature Labs copyright).
+# You must supply your own licensed copy via the C3_DATA_PATH environment variable.
+creaturesexodusgame/
+
+# === Local files ===
+images/
+docs/overview/nornbrain-research-document.md
+creatures_engine_logfile.txt
+
+# (openc2e build output ignored in the engine repo)
+
+# === Runtime data ===
+phase2-bridge/memory_banks/
+
+# === Training checkpoint archive (large) ===
+eval/weights/
+
+# === Build / cache ===
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.log
+node_modules/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+# === Test artifacts ===
+test_*.txt
+
+# === OS junk ===
+.DS_Store
+Thumbs.db

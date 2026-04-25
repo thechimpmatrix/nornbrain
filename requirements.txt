@@ -1,0 +1,15 @@
+# NORNBRAIN - Python dependencies
+#
+# Core: CfC/NCP brain model
+ncps>=0.0.7
+torch>=2.0.0
+numpy>=1.24.0
+
+# Optional: ONNX inference (see tools/onnx_export_benchmark.py)
+# onnxruntime>=1.16.0
+
+# Web monitor: WebSocket relay (see tools/engine/web_monitor.py)
+websockets>=12.0
+
+# Testing
+pytest>=7.4.0
