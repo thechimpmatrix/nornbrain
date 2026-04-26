@@ -26,8 +26,9 @@ pytest tests/
 ```
 
 The openc2e engine is not required for Python-only work. If your contribution
-touches the engine integration layer (`tools/engine/nornbrain_cfc_v2.py` or
-`PythonBrain.cpp`), you will also need to build the engine. See
+touches the engine integration layer (the Phase E.2 brain wrapper, pending
+implementation per the active design spec, or `PythonBrain.cpp`), you will
+also need to build the engine. See
 `https://github.com/thechimpmatrix/openc2e-nb` for build instructions.
 
 ---
@@ -93,13 +94,13 @@ need tuning belongs in a named constant or configuration variable.
 ## Data and weights
 
 The project observes a strict **P1 Law: never destroy data.** If your
-contribution writes to `phase2-bridge/` or `eval/`, it must archive the prior
+contribution writes to `runtime/` or `eval/`, it must archive the prior
 version with a timestamped filename before overwriting. Training runs should
 call `python tools/analyse_brain_data.py` to generate an HTML report in
 `eval/archive/` after completing.
 
 Do not commit large weight files (`.pt`, `.onnx`) unless they are the canonical
-working weights for `phase2-bridge/`. Training checkpoints belong in
+working weights for `runtime/`. Training checkpoints belong in
 `eval/weights/`, which is gitignored.
 
 ---
