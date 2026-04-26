@@ -15,6 +15,7 @@ The current architecture is documented at `docs/specs/2026-04-26-cfc-comb-replac
 | `code/nornbrain/` | The v2 brain Python code (`multi_lobe_brain.py`, `brain_genome.py`, `norn_brain.py` and associated v2 modules) |
 | `docs/roadmap-v2.md` | The v2 roadmap that governed work until the comb pivot |
 | `docs/nornbrain-research-document.md` | Research document written against the v2 architecture, pending rewrite for the comb-replacement architecture |
+| `docs/manuals/monitor-user-manual.md` | The 15-section v2 monitor user guide, written against the four-module architecture which the comb-replacement design retired |
 | `docs/specs/` | All v2-era design specs (Phase 1 through 4d, monitor v2, brain architecture v2, stimulus override, test harness) |
 | `docs/plans/` | All v2-era implementation plans |
 | `docs/ideas/svbrain-distillation-training.md` | Distillation idea recorded during v2 study work |
