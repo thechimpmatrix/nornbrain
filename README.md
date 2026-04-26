@@ -180,4 +180,13 @@ The repository root carries only the boilerplate already present (`README.md`, `
 
 ## License
 
-See `LICENSE`.
+NORNBRAIN uses a split license to require attribution and prevent uncompensated commercial use.
+
+- Code is licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE). This covers everything under `nornbrain/`, `tools/`, `tests/`, the executable parts of `kb/`, and any other source files.
+- Documentation, reference material, and the knowledge base data are licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](LICENSE-DOCS). This covers `docs/`, the `kb/kb.sqlite` data file, and `archive/legacy-v2/docs/`.
+
+Both licenses permit use, modification, and redistribution for non-commercial purposes (research, hobby projects, education, public-interest work) provided you retain attribution to thechimpmatrix.
+
+For commercial use, including bundling NORNBRAIN code or data into a product or service that generates revenue, please open an issue at <https://github.com/thechimpmatrix/nornbrain/issues> with the `commercial-license` label.
+
+If you cite this work in research or reference it in derivative projects, see [`CITATION.cff`](CITATION.cff) for the formal citation format. GitHub renders a "Cite this repository" button using that file.

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use NORNBRAIN in research or build a derivative project, please cite it as below."
+title: "NORNBRAIN"
+abstract: "A Closed-form Continuous-depth (CfC) neural network replacement for the Creatures 3 SVRule comb lobe, embedded in a modified openc2e 64-bit engine via pybind11."
+authors:
+  - alias: thechimpmatrix
+    given-names: thechimpmatrix
+type: software
+repository-code: "https://github.com/thechimpmatrix/nornbrain"
+url: "https://github.com/thechimpmatrix/nornbrain"
+license: PolyForm-Noncommercial-1.0.0
+date-released: 2026-04-26
+keywords:
+  - creatures-3
+  - artificial-life
+  - liquid-neural-network
+  - closed-form-continuous-depth
+  - neural-circuit-policy
+  - openc2e
+  - svrule
+  - comb-lobe
