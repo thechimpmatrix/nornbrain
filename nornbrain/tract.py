@@ -1,13 +1,10 @@
 """
-Tract -- Inter-module projection system for the multi-lobe CfC brain.
-
-Phase 4A: Multi-Lobe CfC Brain Architecture.
-Date: 2026-03-30
+Tract -- Sparse linear projection mirroring C3 brain tract genes.
 
 A tract is a learnable sparse linear projection that transforms one input
-source's values for a target CfC module. Tracts are the inter-module wiring --
-they replace the dense input layer of the monolithic CfC with structured,
-genetically-parameterised connections.
+source's values for a target CfC module. Tracts replace the dense input
+layer of a monolithic CfC with structured, genetically-parameterised
+connections.
 
 Each tract mirrors the C3 brain's tract genes: a source lobe connects to a
 destination lobe with a specific number of connections per destination neuron.

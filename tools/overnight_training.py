@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """NB Overnight Training Watchdog.
 
-Keeps the v2 CfC brain training all night:
-- Starts openc2e with v2 brain if not running
+Keeps the CfC brain training all night:
+- Starts openc2e with the configured brain module if not running
 - Starts web monitor if not running (P1 law: monitor must run with every engine instance)
 - Waits for world to load (900+ agents)
 - Hatches norns if none exist, allows grendels/ettins to spawn naturally
@@ -26,7 +26,10 @@ import datetime
 
 ENGINE_EXE = r"<PROJECT_ROOT>\openc2e\build64\RelWithDebInfo\openc2e.exe"
 DATA_PATH = r"<PROJECT_ROOT>\creaturesexodusgame\Creatures Exodus\Creatures 3"
-BRAIN_MODULE = r"<PROJECT_ROOT>\openc2e\tools\nornbrain_cfc_v2.py"
+# Phase E.2 brain wrapper pending implementation; see
+# docs/specs/2026-04-26-cfc-comb-replacement-design.md for the active design.
+# When empty, the engine launches with the default SVRule brain.
+BRAIN_MODULE = ""
 MONITOR_SCRIPT = r"<PROJECT_ROOT>\openc2e\tools\web_monitor.py"
 LOG_PATH = r"<PROJECT_ROOT>\tools\overnight_training.log"
 
@@ -126,15 +129,16 @@ def is_engine_running() -> bool:
 
 
 def start_engine():
-    """Start openc2e with v2 brain module."""
-    log("Starting openc2e with v2 brain...")
-    subprocess.Popen(
-        [ENGINE_EXE,
-         "--data-path", DATA_PATH,
-         "--gamename", "Creatures 3",
-         "--brain-module", BRAIN_MODULE],
-        cwd=os.path.dirname(ENGINE_EXE),
-    )
+    """Start openc2e with the configured brain module, or the SVRule default if BRAIN_MODULE is empty."""
+    cmd = [ENGINE_EXE,
+           "--data-path", DATA_PATH,
+           "--gamename", "Creatures 3"]
+    if BRAIN_MODULE:
+        log(f"Starting openc2e with brain module {BRAIN_MODULE}...")
+        cmd += ["--brain-module", BRAIN_MODULE]
+    else:
+        log("Starting openc2e with default SVRule brain (BRAIN_MODULE empty)...")
+    subprocess.Popen(cmd, cwd=os.path.dirname(ENGINE_EXE))
     log("Engine process started, waiting for world to load...")
 
 
@@ -232,7 +236,7 @@ def main():
     log("=" * 60)
     log("NB OVERNIGHT TRAINING WATCHDOG STARTED")
     log(f"Engine: {ENGINE_EXE}")
-    log(f"Brain: {BRAIN_MODULE}")
+    log(f"Brain: {BRAIN_MODULE if BRAIN_MODULE else 'SVRule (default)'}")
     log(f"Monitor: http://localhost:{MONITOR_PORT}/")
     log(f"Check interval: {CHECK_INTERVAL}s")
     log("=" * 60)

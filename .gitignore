@@ -12,7 +12,7 @@ creatures_engine_logfile.txt
 # (openc2e build output ignored in the engine repo)
 
 # === Runtime data ===
-phase2-bridge/memory_banks/
+runtime/memory_banks/
 
 # === Training checkpoint archive (large) ===
 eval/weights/

@@ -52,7 +52,10 @@ from test_harness_overlay import (
 
 ENGINE_EXE   = r"<PROJECT_ROOT>\openc2e\build64\RelWithDebInfo\openc2e.exe"
 DATA_PATH    = r"<PROJECT_ROOT>\creaturesexodusgame\Creatures Exodus\Creatures 3"
-BRAIN_MODULE = r"<PROJECT_ROOT>\openc2e\tools\nornbrain_cfc_v2.py"
+# Phase E.2 brain wrapper pending implementation; see
+# docs/specs/2026-04-26-cfc-comb-replacement-design.md for the active design.
+# When empty, the engine launches with the default SVRule brain.
+BRAIN_MODULE = ""
 MONITOR_PY   = r"<PROJECT_ROOT>\openc2e\tools\web_monitor.py"
 MONITOR_URL  = "http://localhost:8088/"
 
@@ -563,6 +566,12 @@ class NBControlPanel:
 
     def _start_engine_cfc(self):
         self._log_cmd("Start Engine (CfC)")
+        if not BRAIN_MODULE:
+            self._log_err(
+                "BRAIN_MODULE is empty: Phase E.2 brain wrapper pending implementation. "
+                "Use 'Start Engine (SVRule)' until the wrapper is in place."
+            )
+            return
         def worker():
             try:
                 subprocess.Popen(

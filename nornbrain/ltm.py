@@ -1,10 +1,10 @@
 """
-NORNBRAIN Long-Term Memory (LTM) System - Phase 4B
+NORNBRAIN Long-Term Memory (LTM) System
 
 Persistent, non-neural memory bank for norns. Encodes intense experiences
 as discrete memory records, retrieves them when current context matches
 past episodes, and injects emotional signal back into the brain via
-the 6 LTM channels defined in Phase 4A.
+6 LTM channels.
 
 Key design points:
 - MemoryBank does NOT import or depend on brain classes; it receives
@@ -12,7 +12,10 @@ Key design points:
 - torch is used only for cosine similarity (dot, norm).
 - Everything else is standard Python + dataclasses + json.
 
-See: docs/superpowers/specs/2026-03-30-phase4b-ltm-system-design.md
+The KEY_DIM constant is currently fixed to v2 module dimensions and will
+need rederivation alongside the Phase E.2 comb-replacement wrapper. The
+original LTM design discussion lives at
+archive/legacy-v2/docs/specs/2026-03-30-phase4b-ltm-system-design.md.
 """
 
 from __future__ import annotations

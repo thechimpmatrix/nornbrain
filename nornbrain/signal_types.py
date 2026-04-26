@@ -1,9 +1,9 @@
 """
-NB Brain Architecture v2 - Signal Type Processing Module
-=========================================================
+NB Brain - Signal Type Processing Module
+========================================
 
 Three architecturally-distinct signal pathways govern how inputs are integrated
-into each CfC module. These pathways are enforced structurally, not learned:
+into a CfC module. These pathways are enforced structurally, not learned:
 
 DATA (content pathway)
     Raw sensory or state information concatenated and fed directly into the CfC
@@ -20,17 +20,16 @@ MODULATION (gain control pathway)
 MEMORY (context injection pathway)
     Gated additive injection of memory or context into the hidden state. A
     learned gate determines how much the module should trust its stored memory
-    versus its current sensory input. This allows long-term context (Hippocampus
-    outputs, instinct signals) to influence processing without overriding it.
+    versus its current sensory input. This allows long-term context (memory
+    or instinct signals) to influence processing without overriding it.
 
 Processing order within SignalRouter:
     1. Modulation applied first - rescales the hidden state
     2. Memory injected second - adds context on top of the rescaled state
     3. Data tensor returned separately - consumed by the CfC forward pass
 
-This order matches the v2 spec: "Apply modulation after CfC update step."
-In practice SignalRouter pre-processes inputs before the CfC tick, so modulation
-here acts on the *previous* hidden state (h_{t-1}) before the CfC sees new data.
+SignalRouter pre-processes inputs before the CfC tick, so modulation here
+acts on the *previous* hidden state (h_{t-1}) before the CfC sees new data.
 """
 
 import torch
