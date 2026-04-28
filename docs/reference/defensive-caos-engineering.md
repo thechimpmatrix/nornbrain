@@ -1,10 +1,5 @@
 # Defensive CAOS Engineering: Principles & Patterns
 
-**READ THIS** before writing any CAOS injection code, bridge logic, or shared-memory interaction.
-These principles are distilled from industry research on defensive programming, chaos engineering,
-design-by-contract, game modding patterns, and architectural decision records: adapted specifically
-for CAOS/Python bridge work in NORNBRAIN.
-
 Last updated: 2026-03-31
 
 ---
@@ -133,25 +128,3 @@ Encode these as computable health signals in the monitor, not just visual displa
 
 ---
 
-## When to Read This Document
-
-- Before writing any new CAOS injection code
-- Before modifying bridge tick logic or shared memory interaction
-- Before adding new GAME variable reads/writes
-- When debugging a "sometimes works, sometimes doesn't" issue (likely a silent failure)
-- When a CAOS command behaves differently than documented (investigate, then add to edge case registry)
-
----
-
-## Sources
-
-This document synthesises research from:
-- Design by Contract (Bertrand Meyer): preconditions, postconditions, invariants
-- Chaos Engineering (principlesofchaos.org): steady-state verification, hypothesis-driven testing
-- Defensive Programming (Enterprise Craftsmanship): boundary validation, gateway pattern
-- Architectural Decision Records (Martin Fowler, AWS): structured decision capture
-- Game Modding Patterns (Lua/Zomboid/Factorio communities): engine alignment, constraint-driven design
-- Sentinel Value Patterns: silent failure detection via impossible marker values
-
-All adapted for the specific constraints of CAOS: no error handling, no return codes, no try/catch,
-silent failures as the default failure mode.
