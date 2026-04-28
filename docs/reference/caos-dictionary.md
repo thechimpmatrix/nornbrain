@@ -1,18 +1,8 @@
 # CAOS Complete Dictionary: Engine 1.162 (C3)
 
-Generated: 2026-03-31 | Source: caoschaos.com + creatures.wiki + NORNBRAIN cross-reference
 Total commands: 801 | C3-compatible: 570 | Used in NORNBRAIN: 96 | Relevant: 123
 
 ## How to Use This File
-
-CC: Read this file when you need to look up ANY CAOS command. Every command
-that exists is here. If it's not here, it doesn't exist.
-
-Status key:
-- ✅ USED: We use this in our bridge/scripts
-- ⚠️ RELEVANT: We don't use it but it's relevant to brain/creature/chemistry work
-- 📌 AVAILABLE: Exists in C3/DS, we might need it someday
-- ❌ UNAVAILABLE: Not in Engine 1.162 or C1/C2 only
 
 ## Quick Lookup Index
 
