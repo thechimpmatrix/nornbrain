@@ -1,12 +1,7 @@
 # C3 Game Files Analysis
-# Authoritative reference extracted from live Steam Creatures 3 Bootstrap, Catalogue, and Genetics files
-# Generated 2026-03-29 via full read of game installation at:
-# I:/SteamLibrary/steamapps/common/Creatures Docking Station/Creatures 3/
-# Cross-verified 2026-04-26 against 1999 Cyberlife C3 source code at <PROJECT_ROOT>/C3sourcecode/engine/.
-# Findings checked: 14 active decision neurons (matches NUMACTIONS=14 in CreatureConstants.h:55);
-# 20 drive neurons (matches NUMDRIVES=20 in CreatureConstants.h:80); chemicals 204/205 = Reward/Punishment;
-# 17 decn lobe neurons gene-encoded with 14 active (consistent with CreatureConstants enum + 3 spare slots).
-# All claims in this doc verified consistent with stock C3 source. No factual corrections applied this pass.
+# Rreference extracted from live Steam Creatures 3 Bootstrap, Catalogue, and Genetics files
+# 2026-03-29
+
 
 ---
 
@@ -1434,18 +1429,6 @@ Full loci address space is defined in the genome file format. The pattern is:
 The grendel upgrade GAME variable name is obfuscated intentionally. The `zzz_` prefix ensures it loads last.
 
 ---
-
-## 40. SUMMARY: WHAT BOOTSTRAP NEVER DOES (safe bridge assumption list)
-
-After reading all 320 Bootstrap files, these assumptions are **confirmed safe** for the bridge design:
-
-1. **No Bootstrap script calls `SPNL`**: the command exists but is unused in Bootstrap. Bridge has exclusive use of it.
-2. **No Bootstrap script calls `BRN:` commands**: brain structure is never modified by CAOS. Only the engine's internal tick modifies brain state.
-3. **`lnn_` GAME variable prefix is unused**: confirmed no collision with any existing variable.
-4. **`born` is called exactly once per creature**: only by Hatchery2.cos and creature import (`pray impo` pathway). Bridge must never call `born`.
-5. **Decision scripts (events 16–29) are the exclusive action execution layer**: bridge should write to brain lobes, not bypass these scripts.
-6. **Sleep lock cannot be broken by brain output**: when `aslp` = 1, the creature is locked. Bridge must detect and suppress outputs.
-7. **Death cannot be prevented once `dead` = 1**: bridge must clean up and detach.
 8. **Navigation drives (driv 15–19) are purely chemical**: driven by CA gradient chemicals 199–203. Bridge reads these but should not override them.
 9. **Bioenergy is a shared economy**: bridge must not spawn food agents or consume bioenergy.
 10. **Grendel upgrade marker**: `game "0kAy_GrEndELs_mAy-BE+_heR3"` = 1 in any world that has loaded the grendel upgrade patch.
