@@ -1,7 +1,6 @@
 # C3 Wildlife, Critters & Brain Interactions: Exhaustive Reference
 # Extracted from live Steam Creatures 3 Bootstrap .cos files
-# Generated 2026-03-29
-# Source: I:/SteamLibrary/steamapps/common/Creatures Docking Station/Creatures 3/Bootstrap/001 World/
+# 2026-03-29
 
 ---
 
