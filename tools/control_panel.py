@@ -1,6 +1,8 @@
 """
 NB Control Panel - tools/control_panel.py
 
+## NOTE: This thing is fragile, localhost monitor is more adaptable.
+
 Tkinter desktop GUI for NORNBRAIN project. Wraps test_harness.py functions
 and sends CAOS to the openc2e NB engine via TCP port 20001.
 
